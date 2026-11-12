@@ -1,21 +1,28 @@
 package com.jishou.medical.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.jishou.medical.common.PageResult;
+import com.jishou.medical.dto.PatientForm;
+import com.jishou.medical.dto.PatientQuery;
 import com.jishou.medical.entity.Patient;
-import com.jishou.medical.mapper.PatientMapper;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
+/**
+ * <p>
+ * 患者表 服务类
+ * </p>
+ *
+ * @author 董洋
+ * @since 2026-11-12
+ */
+public interface PatientService extends IService<Patient> {
 
-@Service
-public class PatientService {
+    PageResult<Patient> pageQuery(PatientQuery query);
 
-    private final PatientMapper patientMapper;
+    Patient getDetail(Long id);
 
-    public PatientService(PatientMapper patientMapper) {
-        this.patientMapper = patientMapper;
-    }
+    Long create(PatientForm form);
 
-    public List<Patient> listAll() {
-        return patientMapper.selectList(null);
-    }
+    void update(Long id, PatientForm form);
+
+    void delete(Long id);
 }

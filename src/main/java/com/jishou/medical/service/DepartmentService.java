@@ -1,21 +1,28 @@
 package com.jishou.medical.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.jishou.medical.common.PageResult;
+import com.jishou.medical.dto.DepartmentForm;
+import com.jishou.medical.dto.DepartmentQuery;
 import com.jishou.medical.entity.Department;
-import com.jishou.medical.mapper.DepartmentMapper;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
+/**
+ * <p>
+ * 科室表 服务类
+ * </p>
+ *
+ * @author 董洋
+ * @since 2026-11-12
+ */
+public interface DepartmentService extends IService<Department> {
 
-@Service
-public class DepartmentService {
+    PageResult<Department> pageQuery(DepartmentQuery query);
 
-    private final DepartmentMapper departmentMapper;
+    Department getDetail(Long id);
 
-    public DepartmentService(DepartmentMapper departmentMapper) {
-        this.departmentMapper = departmentMapper;
-    }
+    Long create(DepartmentForm form);
 
-    public List<Department> listAll() {
-        return departmentMapper.selectList(null);
-    }
+    void update(Long id, DepartmentForm form);
+
+    void delete(Long id);
 }

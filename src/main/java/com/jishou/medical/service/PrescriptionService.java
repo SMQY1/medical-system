@@ -1,21 +1,16 @@
 package com.jishou.medical.service;
 
 import com.jishou.medical.entity.Prescription;
-import com.jishou.medical.mapper.PrescriptionMapper;
-import org.springframework.stereotype.Service;
+import com.baomidou.mybatisplus.extension.service.IService;
 
-import java.util.List;
+/**
+ * <p>
+ * 电子处方表 服务类
+ * </p>
+ *
+ * @author 董洋
+ * @since 2026-11-12
+ */
+public interface PrescriptionService extends IService<Prescription> {
 
-@Service
-public class PrescriptionService {
-
-    private final PrescriptionMapper prescriptionMapper;
-
-    public PrescriptionService(PrescriptionMapper prescriptionMapper) {
-        this.prescriptionMapper = prescriptionMapper;
-    }
-
-    public List<Prescription> listByRegistration(Long registrationId) {
-        return prescriptionMapper.selectList(null);
-    }
 }
