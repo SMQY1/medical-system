@@ -1,21 +1,16 @@
 package com.jishou.medical.service;
 
 import com.jishou.medical.entity.Registration;
-import com.jishou.medical.mapper.RegistrationMapper;
-import org.springframework.stereotype.Service;
+import com.baomidou.mybatisplus.extension.service.IService;
 
-import java.util.List;
+/**
+ * <p>
+ * 挂号记录表 服务类
+ * </p>
+ *
+ * @author 董洋
+ * @since 2026-11-12
+ */
+public interface RegistrationService extends IService<Registration> {
 
-@Service
-public class RegistrationService {
-
-    private final RegistrationMapper registrationMapper;
-
-    public RegistrationService(RegistrationMapper registrationMapper) {
-        this.registrationMapper = registrationMapper;
-    }
-
-    public List<Registration> listByPatient(Long patientId) {
-        return registrationMapper.selectList(null);
-    }
 }

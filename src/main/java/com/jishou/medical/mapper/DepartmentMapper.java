@@ -1,9 +1,16 @@
 package com.jishou.medical.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.jishou.medical.entity.Department;
-import org.apache.ibatis.annotations.Mapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
-@Mapper
+/**
+ * <p>
+ * 科室表 Mapper 接口
+ * </p>
+ *
+ * @author 董洋
+ * @since 2026-11-12
+ */
 public interface DepartmentMapper extends BaseMapper<Department> {
+
 }
